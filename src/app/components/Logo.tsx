@@ -2,7 +2,7 @@
 import Link from "next/link";
 import React from "react";
 import Image from "next/image";
-import myLogo from "../../../public/images/logo.png";
+import myLogo from "../../../public/images/logo.png"; 
 import { motion } from "framer-motion";
 
 // const MotionLink = motion(Link);
