@@ -6,16 +6,13 @@ interface Theme {
   setMode: React.Dispatch<React.SetStateAction<string>>;
 }
 
-
-
 const useThemeSwitcher = (): Theme => {
-  const preferDarkQuery = "(prefer-color-scheme: light)";
+  const preferDarkQuery = "(prefer-color-scheme: dark)";
   const [mode, setMode] = useState("");
   useEffect(() => {
     const mediaQuery = window.matchMedia(preferDarkQuery);
-
     const userPref = window.localStorage.getItem("theme");
-  
+
     const handleChange = () => {
       if (userPref) {
         let check = userPref === "dark" ? "dark" : "light";
@@ -50,7 +47,7 @@ const useThemeSwitcher = (): Theme => {
       document.documentElement.classList.remove("dark");
     }
   }, [mode]);
-  return {mode, setMode};
+  return { mode, setMode };
 };
 
 export default useThemeSwitcher;
