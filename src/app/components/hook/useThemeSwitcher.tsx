@@ -9,7 +9,7 @@ interface Theme {
 
 
 const useThemeSwitcher = (): Theme => {
-  const preferDarkQuery = "(prefer-color-scheme: dark)";
+  const preferDarkQuery = "(prefer-color-scheme: light)";
   const [mode, setMode] = useState("");
   useEffect(() => {
     const mediaQuery = window.matchMedia(preferDarkQuery);
