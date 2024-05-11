@@ -10,12 +10,9 @@ const useThemeSwitcher = (): Theme => {
   const [mode, setMode] = useState("");
   const preferDarkQuery = "(prefers-color-scheme: dark)";
   
-  
   useEffect(() => {
     const mediaQuery = window.matchMedia(preferDarkQuery);
     const userPref = window.localStorage.getItem("theme");
-    console.log(mediaQuery);
-    console.log(userPref);
 
     const handleChange = () => {
       if (userPref) {
