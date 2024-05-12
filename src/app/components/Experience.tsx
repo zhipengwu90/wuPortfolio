@@ -1,6 +1,6 @@
 "use client";
 import React, { useRef } from "react";
-import { useScroll, motion, whileInView } from "framer-motion";
+import { useScroll, motion } from "framer-motion";
 import LiIcon from "./LiIcon";
 interface DetailsProps {
   position: string;
