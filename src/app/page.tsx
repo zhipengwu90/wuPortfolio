@@ -26,9 +26,7 @@ export default function Home() {
             <div className="flex items-center self-start mt-2">
               <Link
                 href="/about"
-                className=" flex items-center bg-dark dark:bg-light text-light dark:text-dark p-2.5 px-6 rounded-lg tex-lg font-semibold hover:bg-light hover:text-dark border-2 border-solid border-transparent hover:border-dark  hover:dark:bg-dark hover:dark:text-light  hover:dark:border-light 
-                
-                "
+                className=" flex items-center bg-dark dark:bg-light text-light dark:text-dark p-2.5 px-6 rounded-lg tex-lg font-semibold hover:bg-light hover:text-dark border-2 border-solid border-transparent hover:border-dark  hover:dark:bg-dark hover:dark:text-light  hover:dark:border-light"
               >
                 Know Me
               </Link>
