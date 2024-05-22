@@ -14,6 +14,7 @@ interface Project {
   img: string | StaticImageData;
   link: string;
   github: string;
+  description: string;
   selectedSkills: string;
 }
 
@@ -32,6 +33,7 @@ const SingleProject: React.FC<Project> = ({
   img,
   link,
   github,
+  description,
   selectedSkills,
 }) => {
   return (
@@ -66,11 +68,7 @@ const SingleProject: React.FC<Project> = ({
         </Link>
         <div className="w-1/2 flex flex-col items-start justify-between pl-6">
           <div className="text-4xl font-bold my-4 ">{title}</div>
-          <div className="text-lg font-medium">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-            posuere erat a ante. Lorem ipsum dolor sit amet, consectetur
-            adipiscing elit. Integer posuere erat a ante.
-          </div>
+          <div className="text-lg font-medium">{description}</div>
 
           <div className="flex flex-row items-center  gap-7 w-full mt-5">
             {github && (
@@ -109,6 +107,8 @@ export default function Projects() {
       img: project1,
       link: "link",
       github: "github",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.",
     },
     {
       title: "Project-2",
@@ -116,6 +116,8 @@ export default function Projects() {
       img: project1,
       link: "link",
       github: "github",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.",
     },
     {
       title: "Project-3",
@@ -123,6 +125,8 @@ export default function Projects() {
       img: project1,
       link: "link",
       github: "github",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.",
     },
     {
       title: "Project-4",
@@ -130,6 +134,8 @@ export default function Projects() {
       img: project1,
       link: "link",
       github: "github",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.",
     },
     {
       title: "Project-5",
@@ -137,6 +143,8 @@ export default function Projects() {
       img: project1,
       link: "link",
       github: "github",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.",
     },
   ];
 
@@ -217,6 +225,7 @@ export default function Projects() {
                     img={project.img}
                     link={project.link}
                     github={project.github}
+                    description={project.description}
                     selectedSkills={selectedSkills}
                   />
                 </div>
@@ -231,6 +240,7 @@ export default function Projects() {
                       img={project.img}
                       link={project.link}
                       github={project.github}
+                      description={project.description}
                       selectedSkills={selectedSkills}
                     />
                   </div>
