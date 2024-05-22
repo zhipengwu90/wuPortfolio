@@ -181,7 +181,7 @@ export default function Projects() {
           </button>
           {selectedSkills !== "All" && (
             <div className="flex  items-center gap-3 border border-solid border-dark dark:border-light px-4  rounded-2xl">
-              <span className="text-lg font-medium ">{selectedSkills}</span>
+              <span className="text-lg font-medium text-primary ">{selectedSkills}</span>
               <IcRoundClose
                 onClick={() => setSelectedSkills("All")}
                 className="w-5 h-5 text-dark  dark:text-light
@@ -195,7 +195,7 @@ export default function Projects() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               ref={filterRef}
-              className="absolute flex flex-col z-50 bg-white p-5 top-10 rounded-md"
+              className="absolute flex flex-col z-50 bg-white p-5 top-9 rounded-md shadow-lg"
             >
               {SkillArray.map((skill, index) => (
                 <button
