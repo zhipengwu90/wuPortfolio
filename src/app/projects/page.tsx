@@ -43,7 +43,7 @@ const SingleProject: React.FC<Project> = ({
      rounded-2xl border border-solid border-dark dark:border-light p-11 bg-light dark:bg-dark relative"
       >
         <div className="absolute rounded-[2rem] top-0 -right-3 -z-10 w-[101%] h-[103%] bg-dark " />
-        <div className="flex gap-2 absolute right-2 top-3">
+        <div className="flex gap-2 absolute right-3 top-3">
           {types.map((type, index) => (
             <span
               key={index}
