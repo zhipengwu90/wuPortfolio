@@ -9,11 +9,20 @@ export default function Home() {
   return (
     <div className="flex items-center text-dark min-h-screen dark:text-light">
       <Layout className="pt-0 ">
-        <div className="flex item-center justify-between w-full">
-          <div className="w-1/2 flex flex-col items-center self-center">
+        <div className="flex flex-row-reverse md:flex-col item-center justify-between w-full">
+        <div className="w-1/2 md:w-full ">
+            <Image
+              src={developer}
+              alt="profile_pic"
+              className="w-full h-auto"
+              priority
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            />
+          </div>
+          <div className="w-1/2 md:w-full flex flex-col items-center self-center">
             <AnimatedText
               text="Transforming Challenges into Triumphs "
-              className="text-6xl font-bold text-left"
+              className="text-6xl font-bold text-left md:text-center md:text-4xl lg:text-5xl "
             />
 
             <p className=" my-4 text-base font-medium">
@@ -39,15 +48,7 @@ export default function Home() {
               </Link>
             </div>
           </div>
-          <div className="w-1/2">
-            <Image
-              src={developer}
-              alt="profile_pic"
-              className="w-full h-auto"
-              priority
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            />
-          </div>
+    
         </div>
       </Layout>
       {/* <div className="absolute left-[20%] bottom-10 inline-block w-40">

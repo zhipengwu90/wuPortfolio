@@ -1,11 +1,12 @@
 "use client";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Logo from "./Logo";
 import { GithubIcon, LinkedInIcon, SunIcon, MoonIcon } from "./Icons";
 import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 import useThemeSwitcher from "./hook/useThemeSwitcher";
+import { IcRoundClose } from "./Icons";
 
 const NavBar: React.FC = () => {
   const { mode, setMode } = useThemeSwitcher();
@@ -67,7 +68,7 @@ const NavBar: React.FC = () => {
         {title}
 
         <span
-          className={`absolute inline-block h-[2px] bg-dark left-0 -bottom-0.5 group-hover:w-full transition-[width] ease-in-out duration-300 group-hover:bg-red-500 dark:bg-light
+          className={`absolute inline-block h-[2px] bg-light left-0 -bottom-0.5 group-hover:w-full transition-[width] ease-in-out duration-300 group-hover:bg-red-500 dark:bg-dark
         ${pathname === href ? "w-full" : "w-0"}`}
         >
           &nbsp;
@@ -76,7 +77,7 @@ const NavBar: React.FC = () => {
     );
   };
   return (
-    <header className="w-full px-32 py-8 font-medium flex items-center justify-between dark:text-light relative">
+    <header className="w-full px-32 py-8  xl:px-24 lg:px-16 md:px-12 sm:px-8 xs:px-6    font-medium flex items-center justify-between dark:text-light relative">
       <button
         className="flex-col justify-center items-center hidden lg:flex"
         onClick={handleToggle}
@@ -114,6 +115,7 @@ const NavBar: React.FC = () => {
             whileHover={{ y: -3 }}
             whileTap={{ scale: 0.9 }}
             className="mr-3 w-6"
+            onClick={() => setIsOpen(false)}
           >
             <GithubIcon />
           </motion.a>
@@ -132,7 +134,9 @@ const NavBar: React.FC = () => {
               mode === "dark" ? "bg-light text-dark" : "bg-dark text-light"
             }`}
             onClick={() => {
+              
               setMode(mode === "light" ? "dark" : "light");
+          
             }}
           >
             {mode === "dark" ? (
@@ -144,29 +148,37 @@ const NavBar: React.FC = () => {
         </nav>
       </div>
       {isOpen && (
-        <div
+        <motion.div
+          initial={{ opacity: 0, scale: 0, x: "-50%", y: "-50%" }}
+          animate={{ opacity: 1, scale: 1 }}
           className="min-w-[70vw] flex flex-col justify-between items-center z-30 fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
-      bg-dark/90 dark:bg-light/75 text-light dark:text-dark rounded-lg shadow-lg p-8 transform transition-all duration-300 ease-in-out
-      backdrop-blur-md py-32
+      bg-dark/90 dark:bg-light/75 text-light dark:text-dark rounded-lg shadow-lg p-8  
+      backdrop-blur-md py-32 
       "
         >
-          <nav className="flex flex-col justify-center items-center">
+          <IcRoundClose
+            onClick={() => setIsOpen(false)}
+            className="w-7 h-7 text-dark  dark:text-light
+              cursor-pointer
+              absolute top-5 right-5"
+          />
+          <nav className="flex flex-col justify-center items-center my-4">
             <CustomMobileLink
               href="/"
               title="Home"
-              className="mr-4"
+              className="my-2"
               onToggle={handleToggle}
             />
             <CustomMobileLink
               href="/projects"
               title="Projects"
-              className="mx-4"
+              className="my-2"
               onToggle={handleToggle}
             />
             <CustomMobileLink
               href="/about"
               title="About"
-              className="ml-4"
+              className="my-2"
               onToggle={handleToggle}
             />
           </nav>
@@ -177,6 +189,7 @@ const NavBar: React.FC = () => {
               whileHover={{ y: -3 }}
               whileTap={{ scale: 0.9 }}
               className="mr-3 w-6"
+              onClick={() => setIsOpen(false)}
             >
               <GithubIcon />
             </motion.a>
@@ -187,6 +200,7 @@ const NavBar: React.FC = () => {
               whileHover={{ y: -3 }}
               whileTap={{ scale: 0.9 }}
               className="mr-3 w-6"
+              onClick={() => setIsOpen(false)}
             >
               <LinkedInIcon />
             </motion.a>
@@ -196,6 +210,7 @@ const NavBar: React.FC = () => {
               }`}
               onClick={() => {
                 setMode(mode === "light" ? "dark" : "light");
+                setIsOpen(false);
               }}
             >
               {mode === "dark" ? (
@@ -205,7 +220,7 @@ const NavBar: React.FC = () => {
               )}
             </button>
           </nav>
-        </div>
+        </motion.div>
       )}
     </header>
   );

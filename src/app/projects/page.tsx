@@ -1,11 +1,17 @@
 "use client";
 import { Layout } from "../components/Layout";
 import AnimatedText from "../components/AnimatedText";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image, { StaticImageData } from "next/image";
 import project1 from "../../../public/images/portfolio.png";
-import { GithubIcon, IcRoundClose } from "../components/Icons";
+import useThemeSwitcher from "../components/hook/useThemeSwitcher";
+import {
+  GithubIcon,
+  IcRoundClose,
+  MingcuteDownLine,
+  MingcuteUpLine,
+} from "../components/Icons";
 import { motion } from "framer-motion";
 
 interface Project {
@@ -39,7 +45,7 @@ const SingleProject: React.FC<Project> = ({
   return (
     <>
       <article
-        className=" w-full flex flex-row items-center justify-center
+        className=" w-full flex flex-row md:flex-col md:px-3 md:py-3 items-center justify-center
      rounded-2xl border border-solid border-dark dark:border-light p-11 bg-light dark:bg-dark relative"
       >
         <div className="absolute rounded-[2rem] top-0 -right-3 -z-10 w-[101%] h-[103%] bg-dark " />
@@ -58,7 +64,7 @@ const SingleProject: React.FC<Project> = ({
         <Link
           href={link}
           target="_blank"
-          className="w-1/2  overflow-hidden rounded-xl border border-solid border-dark dark:border-light"
+          className="w-1/2 md:w-full overflow-hidden rounded-xl border border-solid border-dark dark:border-light"
         >
           <Image
             src={img}
@@ -66,18 +72,18 @@ const SingleProject: React.FC<Project> = ({
             className="h-auto w-full transition-transform duration-500 hover:scale-105  "
           />
         </Link>
-        <div className="w-1/2 flex flex-col items-start justify-between pl-6">
+        <div className="w-1/2 md:w-full flex flex-col items-start justify-between pl-6 sm:pl-3 ">
           <div className="text-4xl font-bold my-4 ">{title}</div>
           <div className="text-lg font-medium">{description}</div>
 
-          <div className="flex flex-row items-center  gap-7 w-full mt-5">
+          <div className="flex flex-row items-center justify-center  gap-7 w-full mt-5">
             {github && (
               <Link
                 href={github}
                 target="_blank"
                 className="hover:underline underline-offset-2"
               >
-                <GithubIcon className="w-10 h-10" />
+                <GithubIcon className="w-11 h-11" />
               </Link>
             )}
             {link && (
@@ -97,8 +103,9 @@ const SingleProject: React.FC<Project> = ({
 
 export default function Projects() {
   const [showSkills, setShowSkills] = useState(false);
-  const filterRef = useRef<HTMLDivElement>(null);
+
   const [selectedSkills, setSelectedSkills] = useState<string>("All");
+  const { mode, setMode } = useThemeSwitcher();
 
   const projectsList = [
     {
@@ -148,40 +155,30 @@ export default function Projects() {
     },
   ];
 
-  const handleClickOutside = (event: MouseEvent) => {
-    if (
-      filterRef.current &&
-      !filterRef.current.contains(event.target as Node)
-    ) {
-      setShowSkills(false);
-    }
-  };
-
-  useEffect(() => {
-    if (showSkills) {
-      document.addEventListener("mousedown", handleClickOutside);
-    } else {
-      document.removeEventListener("mousedown", handleClickOutside);
-    }
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [showSkills]);
   return (
     <main className="w-full flex flex-col mb-16 justify-center items-center text-dark dark:text-light relative ">
       <Layout className="pt-16">
-        <AnimatedText text="Projects" className="text-6xl font-bold mb-10" />
+        <AnimatedText
+          text="Projects"
+          className="text-6xl font-bold mb-10 md:text-4xl"
+        />
         <div className=" gap-3 mb-7  z-30 relative flex">
           <button
             onClick={() => setShowSkills(!showSkills)}
-            className="text-lg font-medium"
+            className="text-lg font-medium flex items-center gap-1"
           >
             Filter by Skills
+            {!showSkills ? (
+              <MingcuteDownLine className="w-5 h-5" />
+            ) : (
+              <MingcuteUpLine className="w-5 h-5" />
+            )}
           </button>
           {selectedSkills !== "All" && (
             <div className="flex  items-center gap-3 border border-solid border-dark dark:border-light px-4  rounded-2xl">
-              <span className="text-lg font-medium text-primary ">{selectedSkills}</span>
+              <span className="text-lg font-medium text-primary ">
+                {selectedSkills}
+              </span>
               <IcRoundClose
                 onClick={() => setSelectedSkills("All")}
                 className="w-5 h-5 text-dark  dark:text-light
@@ -191,10 +188,8 @@ export default function Projects() {
           )}
           {showSkills && (
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              ref={filterRef}
+              initial={{ scale: 0, opacity: 0.5 }}
+              animate={{ scale: 1, opacity: 1 }}
               className="absolute flex flex-col z-50 bg-white p-5 top-9 rounded-md shadow-lg"
             >
               {SkillArray.map((skill, index) => (
@@ -214,11 +209,11 @@ export default function Projects() {
             </motion.div>
           )}
         </div>
-        <div className="grid grid-cols-6 gap-20">
+        <div className="grid grid-cols-6 gap-20  ">
           {projectsList.map((project, index) => {
             if (selectedSkills === "All") {
               return (
-                <div key={index} className="col-span-6">
+                <div key={index} className="col-span-6 sm:col-span-5">
                   <SingleProject
                     title={project.title}
                     types={project.types}
@@ -233,7 +228,7 @@ export default function Projects() {
             } else {
               if (project.types.includes(selectedSkills)) {
                 return (
-                  <div key={index} className="col-span-6">
+                  <div key={index} className="col-span-6 sm:col-span-5">
                     <SingleProject
                       title={project.title}
                       types={project.types}

@@ -12,10 +12,9 @@ const AnimatedNumber: React.FC<{ value: number }> = ({ value }) => {
   const ref = useRef(null);
   const motionValue = useMotionValue(0);
   const springValue = useSpring(motionValue, { duration: 3000 });
-  const isInview = useInView(ref, {once: true});
+  const isInview = useInView(ref, { once: true });
 
   useEffect(() => {
-
     if (isInview) {
       motionValue.set(value);
     }
@@ -35,10 +34,10 @@ const AnimatedNumber: React.FC<{ value: number }> = ({ value }) => {
 export default function About() {
   return (
     <main className="flex w-full flex-col items-center justify-center">
-      <Layout className="pt-16 min-h-screen">
+      <Layout className="pt-16 sm:px-2 min-h-screen">
         <AnimatedText className="text-6xl mb-10" text="About Me" />
         <div className="grid grid-cols-8 gap-10 w-full">
-          <div className="col-span-3 flex flex-col items-center justify-center text-dark/75 dark:text-light ">
+          <div className="col-span-3  lg:col-span-5 md:col-span-8 flex flex-col items-center justify-center text-dark/75 dark:text-light ">
             <h1 className="self-start  text-lg font-bold uppercase mb-1">
               Biography
             </h1>
@@ -56,7 +55,7 @@ export default function About() {
               help others and share my knowledge with them.
             </p>
           </div>
-          <div className="col-span-3 relative h-max rounded-2xl border-2 border-solid border-dark bg-light ">
+          <div className="col-span-3 md:hidden relative h-max rounded-2xl border-2 border-solid border-dark bg-light ">
             <div className="absolute rounded-[2rem] top-0 -right-3 -z-10 w-[103%] h-[104%] bg-dark " />
             <Image
               src={about_me}
@@ -67,19 +66,23 @@ export default function About() {
             />
           </div>
 
-          <div className="col-span-2 flex flex-col justify-between items-end  text-dark dark:text-light">
-            <div className="flex flex-col items-end justify-center">
-              <span className="inline-block text-6xl font-bold ">
-                <AnimatedNumber value={10} />
-                +</span>
+          <div className="col-span-2  lg:col-span-8 lg:flex-row flex flex-col justify-between items-end  text-dark dark:text-light">
+            <div className="flex flex-col items-end  lg:items-center justify-center">
+              <span className="inline-block text-6xl md:text-4xl font-bold ">
+                <AnimatedNumber value={10} />+
+              </span>
               <h2>Projects</h2>
             </div>
-            <div className="flex flex-col items-end justify-center">
-              <span className="inline-block text-6xl font-bold "> <AnimatedNumber value={10} /></span>
+            <div className="flex flex-col items-end lg:items-center justify-center">
+              <span className="inline-block text-6xl md:text-4xl font-bold ">
+                <AnimatedNumber value={10} />
+              </span>
               <h2>Starts</h2>
             </div>
-            <div className="flex flex-col items-end justify-center">
-              <span className="inline-block text-6xl font-bold "> <AnimatedNumber value={10} />+</span>
+            <div className="flex flex-col items-end lg:items-center justify-center">
+              <span className="inline-block text-6xl md:text-4xl font-bold ">
+                <AnimatedNumber value={10} />+
+              </span>
               <h2>Years of experience</h2>
             </div>
           </div>
