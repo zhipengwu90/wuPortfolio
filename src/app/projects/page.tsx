@@ -45,15 +45,15 @@ const SingleProject: React.FC<Project> = ({
   return (
     <>
       <article
-        className=" w-full flex flex-row md:flex-col md:px-3 md:py-3 items-center justify-center
+        className=" w-full flex flex-row md:flex-col md:px-3 md:py-3  md:pb-20  items-center justify-center
      rounded-2xl border border-solid border-dark dark:border-light p-11 bg-light dark:bg-dark relative"
       >
         <div className="absolute rounded-[2rem] top-0 -right-3 -z-10 w-[101%] h-[103%] bg-dark " />
-        <div className="flex gap-2 absolute right-3 top-3">
+        <div className="flex gap-2 absolute right-3 top-3 md:md:top-auto  md:bottom-5 ">
           {types.map((type, index) => (
             <span
               key={index}
-              className={`font-medium text-sm ${
+              className={`font-medium text-xs ${
                 selectedSkills === type ? "text-primary" : ""
               }`}
             >
@@ -105,7 +105,6 @@ export default function Projects() {
   const [showSkills, setShowSkills] = useState(false);
 
   const [selectedSkills, setSelectedSkills] = useState<string>("All");
-  const { mode, setMode } = useThemeSwitcher();
 
   const projectsList = [
     {
@@ -146,7 +145,7 @@ export default function Projects() {
     },
     {
       title: "Project-5",
-      types: ["React Native"],
+      types: ["React Native", "Next.js", "TailwindCSS", "TypeScript"],
       img: project1,
       link: "link",
       github: "github",
