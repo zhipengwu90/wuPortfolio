@@ -7,7 +7,7 @@ import Image, { StaticImageData } from "next/image";
 import project1 from "../../../public/images/portfolio.png";
 import useThemeSwitcher from "../components/hook/useThemeSwitcher";
 import {
-  GithubIcon,
+  BiGithub,
   IcRoundClose,
   MingcuteDownLine,
   MingcuteUpLine,
@@ -83,7 +83,7 @@ const SingleProject: React.FC<Project> = ({
                 target="_blank"
                 className="hover:underline underline-offset-2"
               >
-                <GithubIcon className="w-11 h-11" />
+                <BiGithub className="w-10 h-10" />
               </Link>
             )}
             {link && (
