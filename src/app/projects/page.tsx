@@ -175,7 +175,7 @@ export default function Projects() {
           </button>
           {selectedSkills !== "All" && (
             <div className="flex  items-center gap-3 border border-solid border-dark dark:border-light px-4  rounded-2xl">
-              <span className="text-lg font-medium text-primary ">
+              <span className="text-lg font-medium text-primary md:text-sm ">
                 {selectedSkills}
               </span>
               <IcRoundClose

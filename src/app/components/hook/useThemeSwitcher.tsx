@@ -7,8 +7,8 @@ interface Theme {
 }
 
 const useThemeSwitcher = (): Theme => {
-  const [mode, setMode] = useState("dark");
-  const preferDarkQuery = "(prefers-color-scheme: dark)";
+  const [mode, setMode] = useState("light");
+  const preferDarkQuery = "(prefers-color-scheme: light)";
   
   useEffect(() => {
     const mediaQuery = window.matchMedia(preferDarkQuery);

@@ -60,7 +60,7 @@ const NavBar: React.FC = () => {
     return (
       <Link
         href={href}
-        className={`${className} relative group hover:text-red-500`}
+        className={`${className} relative group md:text-xl hover:text-red-500 my-4`}
         onClick={() => {
           onToggle();
         }}
@@ -134,9 +134,7 @@ const NavBar: React.FC = () => {
               mode === "dark" ? "bg-light text-dark" : "bg-dark text-light"
             }`}
             onClick={() => {
-              
               setMode(mode === "light" ? "dark" : "light");
-          
             }}
           >
             {mode === "dark" ? (
@@ -152,8 +150,8 @@ const NavBar: React.FC = () => {
           initial={{ opacity: 0, scale: 0, x: "-50%", y: "-50%" }}
           animate={{ opacity: 1, scale: 1 }}
           className="min-w-[70vw] flex flex-col justify-between items-center z-30 fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
-      bg-dark/90 dark:bg-light/75 text-light dark:text-dark rounded-lg shadow-lg p-8  
-      backdrop-blur-md py-32 
+      bg-dark/90 dark:bg-light/90 text-light dark:text-dark rounded-lg shadow-lg p-8  
+      backdrop-blur-lg py-32 
       "
         >
           <IcRoundClose
@@ -163,49 +161,38 @@ const NavBar: React.FC = () => {
               absolute top-5 right-5"
           />
           <nav className="flex flex-col justify-center items-center my-4">
-            <CustomMobileLink
-              href="/"
-              title="Home"
-              className="my-2"
-              onToggle={handleToggle}
-            />
+            <CustomMobileLink href="/" title="Home" onToggle={handleToggle} />
             <CustomMobileLink
               href="/projects"
               title="Projects"
-              className="my-2"
               onToggle={handleToggle}
             />
             <CustomMobileLink
               href="/about"
               title="About"
-              className="my-2"
               onToggle={handleToggle}
             />
           </nav>
           <nav className="flex item-center justify-center flex-wrap">
-            <motion.a
+            <a
               href="https://github.com/zhipengwu90"
               target={"_blank"}
-              whileHover={{ y: -3 }}
-              whileTap={{ scale: 0.9 }}
-              className="mr-3 w-6"
+              className="mr-6 w-9"
               onClick={() => setIsOpen(false)}
             >
               <GithubIcon />
-            </motion.a>
+            </a>
 
-            <motion.a
+            <a
               href="https://www.linkedin.com/in/zhipengwu90"
               target={"_blank"}
-              whileHover={{ y: -3 }}
-              whileTap={{ scale: 0.9 }}
-              className="mr-3 w-6"
+              className="mr-6 w-9"
               onClick={() => setIsOpen(false)}
             >
               <LinkedInIcon />
-            </motion.a>
+            </a>
             <button
-              className={`ml-2 flex item-center justify-center rounded-full p-1  w-6 ${
+              className={` flex item-center justify-center rounded-full p-1  w-9 ${
                 mode === "dark" ? "bg-light text-dark" : "bg-dark text-light"
               }`}
               onClick={() => {
