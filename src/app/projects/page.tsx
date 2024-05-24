@@ -83,7 +83,7 @@ const SingleProject: React.FC<Project> = ({
                 target="_blank"
                 className="hover:underline underline-offset-2"
               >
-                <GithubIcon className="w-12 h-12" />
+                <GithubIcon className="w-11 h-11" />
               </Link>
             )}
             {link && (

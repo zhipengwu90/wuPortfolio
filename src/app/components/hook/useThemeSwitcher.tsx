@@ -7,7 +7,7 @@ interface Theme {
 }
 
 const useThemeSwitcher = (): Theme => {
-  const [mode, setMode] = useState("");
+  const [mode, setMode] = useState("dark");
   const preferDarkQuery = "(prefers-color-scheme: dark)";
   
   useEffect(() => {
