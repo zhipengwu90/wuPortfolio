@@ -99,15 +99,17 @@ const NavBar: React.FC = () => {
         ></span>
       </button>
 
+      <div className="absolute left-[50%] top-2 lg:top-0 translate-x-[-50%]">
+        <Logo />
+      </div>
+
       <div className="w-full flex justify-between items-center lg:hidden">
         <nav>
           <CustomLink href="/" title="Home" className="mr-4" />
           <CustomLink href="/projects" title="Projects" className="mx-4" />
           <CustomLink href="/about" title="About" className="ml-4" />
         </nav>
-        <div className="absolute left-[50%] top-2 translate-x-[-50%]">
-          <Logo />
-        </div>
+   
         <nav className="flex item-center justify-center flex-wrap">
           <motion.a
             href="https://github.com/zhipengwu90"

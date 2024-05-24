@@ -35,7 +35,7 @@ export default function About() {
   return (
     <main className="flex w-full flex-col items-center justify-center">
       <Layout className="pt-16 sm:px-2 min-h-screen">
-        <AnimatedText className="text-6xl mb-10" text="About Me" />
+        <AnimatedText className="text-6xl mb-10 lg:text-5xl" text="About Me" />
         <div className="grid grid-cols-8 gap-10 w-full">
           <div className="col-span-3  lg:col-span-5 md:col-span-8 flex flex-col items-center justify-center text-dark/75 dark:text-light ">
             <h1 className="self-start  text-lg font-bold uppercase mb-1">

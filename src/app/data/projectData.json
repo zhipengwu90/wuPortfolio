@@ -1,0 +1,58 @@
+[
+  {
+    "title": "Hands On",
+    "types": ["React Native", "Firebase", "Node.js", "Express.js"],
+    "img": "portfolio.png",
+    "link": "",
+    "github": "https://github.com/zhipengwu90/Hands_On_app",
+    "description": "The mobile application that connects busy people with reliable helpers in their local area. The app is built with React Native and Expo. The backend is built with Node.js, Express.js, and Firebase."
+  },
+  {
+    "title": "Chatbot",
+    "types": ["Next.js", "TypeScript", "OpenAI"],
+    "img": "portfolio.png",
+    "link": "https://www.wuapp.app/",
+    "github": "https://github.com/zhipengwu90/Chatbot",
+    "description": "This web application allows the user to switch between the OpenAI models of GPT-3.5 Turbo and GPT-4. Employed cutting-edge technologies, including React, Next.js, and the powerful OpenAI API, to deliver a seamless and intuitive platform. "
+  },
+  {
+    "title": "VFriend",
+    "types": ["React Native", "Firebase", "OpenAI"],
+    "img": "portfolio.png",
+    "link": "",
+    "github": "https://github.com/zhipengwu90/VFriend",
+    "description": "This mobile application enabling users to create and interact with virtual characters. The app is built with React Native and Expo, and integrated with the OpenAI API."
+  },
+  {
+    "title": "Fever Scanner",
+    "types": ["Python"],
+    "img": "portfolio.png",
+    "link": "",
+    "github": "https://github.com/zhipengwu90/VFriend",
+    "description": "This project is using raspeberry pi and thermal imaging camera to create a fever scanner to monitor the users' body temperature The users will scan their NFC tags to identify their IDs, then trigger the thermal imaging camera to start taking the body temperature."
+  },
+  {
+    "title": "Dream House",
+    "types": ["JavaScript", "HTML", "CSS", "Bootstrap"],
+    "img": "portfolio.png",
+    "link": "https://zhipengwu90.github.io/ITAS191/index.html",
+    "github": "https://github.com/zhipengwu90/zhipengwu90.github.io/tree/main/ITAS191",
+    "description": "This project is using raspeberry pi and thermal imaging camera to create a fever scanner to monitor the users' body temperature The users will scan their NFC tags to identify their IDs, then trigger the thermal imaging camera to start taking the body temperature."
+  },
+  {
+    "title": "Wu's Portfolio",
+    "types": ["JavaScript", "HTML", "CSS", "Bootstrap"],
+    "img": "portfolio.png",
+    "link": "https://zhipengwu90.github.io/index.html",
+    "github": "https://github.com/zhipengwu90/zhipengwu90.github.io",
+    "description": "This project is my portfolio website. It is built with HTML, CSS, and JavaScript. The website is responsive and mobile-friendly."
+  },
+  {
+    "title": "Canada Market",
+    "types": ["WordPress", "PHP", "HTML", "CSS"],
+    "img": "portfolio.png",
+    "link": "",
+    "github": "",
+    "description": "This project is a website for house hunting, it is built with WordPress. The website is responsive and mobile-friendly."
+  }
+]

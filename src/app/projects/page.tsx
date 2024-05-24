@@ -5,7 +5,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image, { StaticImageData } from "next/image";
 import project1 from "../../../public/images/portfolio.png";
-import useThemeSwitcher from "../components/hook/useThemeSwitcher";
+import projectData from "../data/projectData.json"
 import {
   BiGithub,
   IcRoundClose,
@@ -31,6 +31,13 @@ const SkillArray = [
   "TypeScript",
   "React Native",
   "Python",
+  "Firebase",
+  "OpenAI",
+  "WordPress",
+  "PHP",
+  "Node.js",
+  "Express.js",
+
 ];
 
 const SingleProject: React.FC<Project> = ({
@@ -41,6 +48,7 @@ const SingleProject: React.FC<Project> = ({
   github,
   description,
   selectedSkills,
+
 }) => {
   return (
     <>
@@ -67,7 +75,9 @@ const SingleProject: React.FC<Project> = ({
           className="w-1/2 md:w-full overflow-hidden rounded-xl border border-solid border-dark dark:border-light"
         >
           <Image
-            src={img}
+            src={`/images/${img}`}
+            width={500}
+            height={500}
             alt={title}
             className="h-auto w-full transition-transform duration-500 hover:scale-105  "
           />
@@ -106,53 +116,6 @@ export default function Projects() {
 
   const [selectedSkills, setSelectedSkills] = useState<string>("All");
 
-  const projectsList = [
-    {
-      title: "Project-1",
-      types: ["Next.js", "TailwindCSS"],
-      img: project1,
-      link: "link",
-      github: "github",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.",
-    },
-    {
-      title: "Project-2",
-      types: ["TailwindCSS", "TypeScript"],
-      img: project1,
-      link: "link",
-      github: "github",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.",
-    },
-    {
-      title: "Project-3",
-      types: ["TailwindCSS"],
-      img: project1,
-      link: "link",
-      github: "github",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.",
-    },
-    {
-      title: "Project-4",
-      types: ["React Native"],
-      img: project1,
-      link: "link",
-      github: "github",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.",
-    },
-    {
-      title: "Project-5",
-      types: ["React Native", "Next.js", "TailwindCSS", "TypeScript"],
-      img: project1,
-      link: "link",
-      github: "github",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.",
-    },
-  ];
 
   return (
     <main className="w-full flex flex-col mb-16 justify-center items-center text-dark dark:text-light relative ">
@@ -209,7 +172,7 @@ export default function Projects() {
           )}
         </div>
         <div className="grid grid-cols-6 gap-20  ">
-          {projectsList.map((project, index) => {
+          {projectData.map((project, index) => {
             if (selectedSkills === "All") {
               return (
                 <div key={index} className="col-span-6 sm:col-span-5">
