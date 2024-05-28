@@ -1,0 +1,52 @@
+[
+  {
+    "position": "Aquatic Science Technician",
+    "company": "Fisheries and Oceans Canada",
+    "companyLink": "https://www.dfo-mpo.gc.ca/index-eng.html",
+    "time": "Nov 2023 - Present",
+    "address": "Nanaimo, BC",
+    "description": "Conducted comprehensive data compilation, analysis, and quality assurance/quality control (QA/QC) using Microsoft Access and SQL queries for database uploading.Provided technical support for scientific field and projects, playing a key role in fish stock assessment.Maintained custodianship over the NuSEDS database, effectively managing and keeping up its data for use in scientific research and projects."
+  },
+  {
+    "position": "Data Technician",
+    "company": "Fisheries and Oceans Canada",
+    "companyLink": "https://www.dfo-mpo.gc.ca/index-eng.html",
+    "time": "Nov 2022 - Mar 2023",
+    "address": "Nanaimo, BC",
+    "description": "Conducted comprehensive data compilation, analysis, and uploading using SQL queries into the database. Provided technical support for scientific field and projects, playing a key role in fish stock assessment."
+  },
+  {
+    "position": "Saltwater Production Site Manager",
+    "company": "Cermaq Canada",
+    "companyLink": "https://www.cermaq.ca/",
+    "time": "Oct 2019 - May 2021",
+    "address": "Tofino, BC",
+    "description": "Responsible leading a team through general husbandry operations, ensuring a healthy lifecycle of fish from smolt intakes, growth to harvest. Implement, monitor and report on programs that improve the health and safety of the work team and of the salmon with the goal of meeting and exceeding regulatory compliance. Utilization of analytical skills to collect data"
+  },
+  
+  {
+    "position": "Saltwater Production Assistant Manager",
+    "company": "Cermaq Canada",
+    "companyLink": "https://www.cermaq.ca/",
+    "time": "Oct 2019 - May 2021",
+    "address": "Tofino, BC",
+    "description": "Responsible leading a team through general husbandry operations, ensuring a healthy lifecycle of fish from smolt intakes, growth to harvest. Implement, monitor and report on programs that improve the health and safety of the work team and of the salmon with the goal of meeting and exceeding regulatory compliance. Utilization of analytical skills to collect data"
+  },
+  {
+    "position": "Saltwater Lead hand/Technician",
+    "company": "Cermaq Canada",
+    "companyLink": "https://www.cermaq.ca/",
+    "time": "Jan 2014 - May 2019",
+    "address": "Tofino, BC",
+    "description": "Providing support to the seasite through husbandry operations to ensure a healthy lifecycle of the salmon from smolt to harvest"
+  }
+  ,
+  {
+    "position": "IT Service Desk",
+    "company": "Dalhousie University",
+    "companyLink": "https://www.dal.ca/",
+    "time": "Sep 2012 - Dec 2013",
+    "address": "Truro, NS",
+    "description": "Providing technical assistance and support to faculty, staff, and students, such as general computer troubleshooting, application/software support, printing support, and password support. Preparing and maintaining computer equipment and related technologies in the library and computer room."
+  }
+]

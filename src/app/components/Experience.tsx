@@ -2,6 +2,8 @@
 import React, { useRef } from "react";
 import { useScroll, motion } from "framer-motion";
 import LiIcon from "./LiIcon";
+import experienceData from "../data/experienceData.json";
+
 interface DetailsProps {
   position: string;
   company: string;
@@ -32,7 +34,7 @@ const Details: React.FC<DetailsProps> = ({
         transition={{ duration: 0.5, type: "spring" }}
       >
         <h3 className="capitalize font-bold text-2xl md:text-lg ">
-          {position} &nbsp;
+          {position} <br/>
           <a href={companyLink} className="text-primary dark:text-primaryDark">
             @{company}
           </a>
@@ -64,7 +66,34 @@ const Experience = () => {
           className="absolute left-8 md:left-1 w-[4px] h-full bg-dark origin-top dark:bg-primaryDark  "
         />
         <ul className="md:ml-4">
+          {experienceData.map((data, index) => (
+            <Details
+              key={index}
+              position={data.position}
+              company={data.company}
+              companyLink={data.companyLink}
+              time={data.time}
+              address={data.address}
+              description={data.description}
+            />
+          ))}
+          {/* <Details
+            position="Full Stack Developer"
+            company="Google"
+            companyLink="https://www.google.com"
+            time="2020 - Present"
+            address="Mountain View, CA"
+            description="Developed and maintained web applications using React, Node.js, and MongoDB."
+
           <Details
+            position="Full Stack Developer"
+            company="Google"
+            companyLink="https://www.google.com"
+            time="2020 - Present"
+            address="Mountain View, CA"
+            description="Developed and maintained web applications using React, Node.js, and MongoDB."
+          />
+          {/* <Details
             position="Full Stack Developer"
             company="Google"
             companyLink="https://www.google.com"
@@ -103,15 +132,7 @@ const Experience = () => {
             time="2020 - Present"
             address="Mountain View, CA"
             description="Developed and maintained web applications using React, Node.js, and MongoDB."
-          />
-          <Details
-            position="Full Stack Developer"
-            company="Google"
-            companyLink="https://www.google.com"
-            time="2020 - Present"
-            address="Mountain View, CA"
-            description="Developed and maintained web applications using React, Node.js, and MongoDB."
-          />
+          /> */}
         </ul>
       </div>
     </div>
