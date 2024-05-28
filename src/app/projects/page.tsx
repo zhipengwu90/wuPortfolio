@@ -3,14 +3,15 @@ import { Layout } from "../components/Layout";
 import AnimatedText from "../components/AnimatedText";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import Image, { StaticImageData } from "next/image";
+import Image, { StaticImageData, } from "next/image";
 import project1 from "../../../public/images/portfolio.png";
-import projectData from "../data/projectData.json"
+import projectData from "../data/projectData.json";
 import {
   BiGithub,
   IcRoundClose,
   MingcuteDownLine,
   MingcuteUpLine,
+  IonLogoAppleAppstore
 } from "../components/Icons";
 import { motion } from "framer-motion";
 
@@ -22,6 +23,7 @@ interface Project {
   github: string;
   description: string;
   selectedSkills: string;
+  appStore?: string;
 }
 
 const SkillArray = [
@@ -37,7 +39,6 @@ const SkillArray = [
   "PHP",
   "Node.js",
   "Express.js",
-
 ];
 
 const SingleProject: React.FC<Project> = ({
@@ -48,7 +49,7 @@ const SingleProject: React.FC<Project> = ({
   github,
   description,
   selectedSkills,
-
+  appStore,
 }) => {
   return (
     <>
@@ -104,6 +105,15 @@ const SingleProject: React.FC<Project> = ({
                 Visit Project
               </Link>
             )}
+            {appStore && (
+              <Link
+                href={appStore}
+                className=" flex items-center gap-2 bg-dark dark:bg-light text-light dark:text-dark p-1 px-3 rounded-lg text-lg font-semibold hover:bg-light hover:text-dark border-2 border-solid border-transparent hover:border-dark  hover:dark:bg-dark hover:dark:text-light  hover:dark:border-light"
+              >
+                <IonLogoAppleAppstore className="w-8 h-8" />
+                App Store
+              </Link>
+            )}
           </div>
         </div>
       </article>
@@ -115,7 +125,6 @@ export default function Projects() {
   const [showSkills, setShowSkills] = useState(false);
 
   const [selectedSkills, setSelectedSkills] = useState<string>("All");
-
 
   return (
     <main className="w-full flex flex-col mb-16 justify-center items-center text-dark dark:text-light relative ">
@@ -184,6 +193,7 @@ export default function Projects() {
                     github={project.github}
                     description={project.description}
                     selectedSkills={selectedSkills}
+                    appStore={project.appStore}
                   />
                 </div>
               );
@@ -199,6 +209,7 @@ export default function Projects() {
                       github={project.github}
                       description={project.description}
                       selectedSkills={selectedSkills}
+                      appStore={project.appStore}
                     />
                   </div>
                 );
