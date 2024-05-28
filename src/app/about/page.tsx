@@ -81,7 +81,7 @@ export default function About() {
             </div>
             <div className="flex flex-col items-end lg:items-center justify-center">
               <span className="inline-block text-6xl md:text-4xl font-bold ">
-                <AnimatedNumber value={10} />+
+                <AnimatedNumber value={1} />+
               </span>
               <h2>Years of experience</h2>
             </div>
