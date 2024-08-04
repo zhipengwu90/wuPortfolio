@@ -6,6 +6,7 @@ import background_pic from "../../public/images/background_pic.png";
 import Link from "next/link";
 
 export default function Home() {
+
   return (
     <div className="flex items-center text-dark min-h-screen dark:text-light">
       <Layout className="pt-0 ">

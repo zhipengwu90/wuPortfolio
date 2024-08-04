@@ -1,0 +1,208 @@
+.container {
+  width: 98vw;
+  height: 88vh;
+  margin: 0 auto;
+  padding: 6px 14px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 16px;
+  color: #5b5b5b;
+}
+.startBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+}
+.startBox p {
+  color: #8f8e8e;
+}
+
+.chatContent {
+  padding: 10px;
+  flex-grow: 1;
+  overflow-y: auto;
+  border-radius: 10px;
+  border: 1px solid #e0e0e0;
+}
+
+.inputButtonBox {
+  display: flex;
+  flex-direction: row;
+}
+
+.chatInput {
+  resize: none;
+  flex-grow: 1;
+  margin-top: 16px;
+  padding: 8px;
+  font-size: 1em;
+  border: 1px solid #cac7c7;
+  border-radius: 4px;
+  background-color: #ffffff;
+  color: #333;
+  word-wrap: break-word;
+  overflow-y: auto;
+  box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.2);
+}
+
+.chatButton {
+  align-self: flex-end;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border: none;
+  padding: 3px;
+  cursor: pointer;
+  margin-left: 2px;
+}
+.submitIcon {
+  color: #0062cc;
+}
+.chatButton:hover {
+  border-radius: 10px;
+  background-color: rgb(158, 210, 237);
+}
+
+/* Define the styles for the loading component */
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+}
+
+.loader {
+  /* Define the styles for the loader animation */
+  width: 50px;
+  height: 50px;
+  border: 5px solid #ccc;
+  border-radius: 50%;
+  border-top-color: #000;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  /* Define the rotation animation for the loader */
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.buttonBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 5px;
+  margin-top: 10px;
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.75);
+}
+
+.settingWrapper {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  min-width: 300px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.settingWrapper label {
+  display: inline-block;
+  margin-bottom: 10px;
+  font-weight: 600;
+  font-size: 16px;
+  color: #333;
+  margin-left: 10px;
+  z-index: 9999;
+}
+
+.confirmButton {
+  padding: 2px;
+  background-color: #ffffff;
+  color: #fff;
+
+  border-radius: 50%;
+  border: 2px solid #f44336;
+  cursor: pointer;
+  z-index: 9999;
+}
+
+.confirmButton:hover {
+  background-color: #e2e2e2;
+}
+
+.confirmButtonBox {
+  display: flex;
+  justify-content: flex-end;
+}
+.warning {
+  color: red;
+  font-size: 12px;
+}
+.warning span {
+  color: red;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.tableText {
+  width: 100%;
+  margin-top: 20px;
+  font-size: 0.7em;
+  border: 1px solid;
+}
+.tableText th,
+.tableText td {
+  border: 1px solid;
+}
+
+.model {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  color: #a5a5a5;
+  font-size: 11px;
+}
+
+.sendPrevious {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 10px;
+}
+
+.sendPrevious label {
+  margin: 0 5px;
+  color: #8c8a8a;
+}

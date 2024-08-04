@@ -51,6 +51,9 @@ const SingleProject: React.FC<Project> = ({
   selectedSkills,
   appStore,
 }) => {
+
+
+  
   return (
     <>
       <article
