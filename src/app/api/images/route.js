@@ -21,11 +21,8 @@
 //   res.status(200).json({ result: response.data });
 // }
 
-
-
-export default async function handler(req, res) {
+export async function POST(req) {
   const openaiApiKey = process.env.OPENAI_API_KEY;
-  
   if (!openaiApiKey) {
     throw new Error("Missing env var from OpenAI");
   }

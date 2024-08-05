@@ -22,7 +22,7 @@ const User: React.FC<UserProps> = (props: UserProps) => {
           </>
         ))} */}
         {/* <ReactMarkdown>{props.message}</ReactMarkdown> */}
-        <Markdown>{props.message}</Markdown>
+        <ReactMarkdown>{props.message}</ReactMarkdown>
       </div>
     </div>
   );
