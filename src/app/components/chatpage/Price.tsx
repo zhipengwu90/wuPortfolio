@@ -4,13 +4,17 @@ import Image from "next/image";
 type Props = {
   isSetting: boolean;
   currentModel: string;
+  sendPrevious: boolean;
   sendDataToParent: (el: boolean, model: string) => void;
+  continuouslyTalkToParent: (el: boolean) => void;
 };
 
 export default function Price({
   isSetting,
   currentModel,
+  sendPrevious,
   sendDataToParent,
+  continuouslyTalkToParent,
 }: Props) {
   const [gptModel, setGptModel] = useState(currentModel);
 
@@ -18,6 +22,9 @@ export default function Price({
     sendDataToParent(false, gptModel);
   };
 
+  const ContinuouslyTalk = (event: any) => {
+    continuouslyTalkToParent(event.target.checked);
+  };
   return (
     <>
       {isSetting && (
@@ -92,16 +99,16 @@ export default function Price({
               <label htmlFor="gpt-4-turbo">GPT-4-Turbo</label>
             </div>
 
-            {/* <div className={styles.sendPrevious}>
-          <input
-            type="checkbox"
-            id="sendPrevious"
-            name="sendPrevious"
-            checked={sendPrevious}
-            onChange={sendPreviousHandler}
-          />
-          <label htmlFor="sendPrevious"> Continuously Talk</label>
-        </div> */}
+            <div className={styles.sendPrevious}>
+              <input
+                type="checkbox"
+                id="sendPrevious"
+                name="sendPrevious"
+                checked={sendPrevious}
+                onChange={ContinuouslyTalk}
+              />
+              <label htmlFor="sendPrevious"> Continuously Talk</label>
+            </div>
             <div className={styles.warning}>
               <span>Continuously Talk:</span> Send the most recent conversation
               with the current prompt. It will start from next prompt (not the

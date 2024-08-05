@@ -15,11 +15,7 @@ export default function ChatWindow({}: Props) {
   const [prompt, setPrompt] = useState("");
   const [isSetting, setIsSetting] = useState(false);
 
-  const [sendPrevious, setSendPrevious] = useState(false);
-
-  const sendPreviousHandler = () => {
-    setSendPrevious((prev) => !prev);
-  };
+  const [sendPrevious, setSendPrevious] = useState(true);
 
   useEffect(() => {
     if (message !== "" || generatedText !== "") {
@@ -133,12 +129,18 @@ export default function ChatWindow({}: Props) {
     setGptModel(model);
   };
 
+  const sendPreviousHandler = (el: boolean) => {
+    setSendPrevious(el);
+  };
+
   return (
     <div className={styles.container}>
       <Price
         isSetting={isSetting}
         currentModel={gptModel}
+        sendPrevious={sendPrevious}
         sendDataToParent={(el, model) => settingHandler(el, model)}
+        continuouslyTalkToParent={sendPreviousHandler}
       />
 
       <>
@@ -201,7 +203,10 @@ export default function ChatWindow({}: Props) {
             }}
           />
           <div className={styles.buttonBox}>
-            <button className={styles.chatButton} onClick={settingHandler}>
+            <button
+              className={styles.chatButton}
+              onClick={() => setIsSetting(true)}
+            >
               <Image
                 width={25}
                 height={25}
