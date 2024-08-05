@@ -88,6 +88,8 @@ export default function ChatWindow({}: Props) {
       content: prompt,
     });
     console.log(myPrompt);
+
+
     const response = await fetch("/api/generate", {
       method: "POST",
       headers: {
@@ -105,7 +107,7 @@ export default function ChatWindow({}: Props) {
 
     // This data is a ReadableStream
     const data = response.body;
-    console.log(data);
+    
     if (!data) {
       return;
     }

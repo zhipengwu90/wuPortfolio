@@ -14,6 +14,7 @@ import {
   IonLogoAppleAppstore
 } from "../components/Icons";
 import { motion } from "framer-motion";
+import Footer from "../components/Footer";
 
 interface Project {
   title: string;
@@ -130,6 +131,7 @@ export default function Projects() {
   const [selectedSkills, setSelectedSkills] = useState<string>("All");
 
   return (
+    <>
     <main className="w-full flex flex-col mb-16 justify-center items-center text-dark dark:text-light relative ">
       <Layout className="pt-16">
         <AnimatedText
@@ -222,5 +224,7 @@ export default function Projects() {
         </div>
       </Layout>
     </main>
+    <Footer />
+    </>
   );
 }

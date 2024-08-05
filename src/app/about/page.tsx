@@ -7,6 +7,7 @@ import { useRef, useEffect } from "react";
 import { useMotionValue, useInView, useSpring } from "framer-motion";
 import Skills from "../components/Skills";
 import Experience from "../components/Experience";
+import Footer from "../components/Footer";
 
 const AnimatedNumber: React.FC<{ value: number }> = ({ value }) => {
   const ref = useRef(null);
@@ -33,6 +34,7 @@ const AnimatedNumber: React.FC<{ value: number }> = ({ value }) => {
 
 export default function About() {
   return (
+    <>
     <main className="flex w-full flex-col items-center justify-center">
       <Layout className="pt-16 sm:px-2 min-h-screen">
         <AnimatedText className="text-6xl mb-10 lg:text-5xl" text="About Me" />
@@ -91,5 +93,7 @@ export default function About() {
         <Experience />
       </Layout>
     </main>
+    <Footer />
+    </>
   );
 }

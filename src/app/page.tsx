@@ -4,10 +4,12 @@ import developer from "../../public/images/developer.png";
 import AnimatedText from "./components/AnimatedText";
 import background_pic from "../../public/images/background_pic.png";
 import Link from "next/link";
+import Footer from "./components/Footer";
 
 export default function Home() {
 
   return (
+    <>
     <div className="flex items-center text-dark min-h-screen dark:text-light">
       <Layout className="pt-0 ">
         <div className="flex flex-row-reverse md:flex-col item-center justify-between w-full">
@@ -58,7 +60,10 @@ export default function Home() {
           alt="background_image"
           className="w-full h-auto"
         />
+
       </div> */}
     </div>
+      <Footer />
+    </>
   );
 }
