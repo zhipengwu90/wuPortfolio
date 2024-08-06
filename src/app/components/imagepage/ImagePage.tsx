@@ -21,42 +21,16 @@ export default function ImagePage(props: IAppProps) {
     // other properties
   };
 
-  const checkPassword = () => {
-    const passwordHandler = () => {
-      if (passwordRef.current === null) return;
-      if (passwordRef.current?.value === "0708") {
-        setIsValid(true);
-      } else {
-        alert("Incorrect password");
-      }
-    };
-    return (
-      <div className={styles.passwordWrapper}>
-        <input
-          className={styles.passwordInput}
-          onKeyDown={(e) => {
-            if (e.key === "Enter") {
-              e.preventDefault();
-              passwordHandler();
-            }
-          }}
-          ref={passwordRef}
-          type="password"
-          placeholder="Enter password"
-        />
-        <button className={styles.passButton} onClick={passwordHandler}>
-          Submit
-        </button>
-      </div>
-    );
-  };
 
   async function getImages() {
     if (prompt != "") {
       setError(false);
       setLoading(true);
       setResult("");
-      const response = await fetch("/api/images", {
+
+      const url = "/api/images";
+
+      const response = await fetch(url, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -66,19 +40,6 @@ export default function ImagePage(props: IAppProps) {
           model: model,
         }),
       });
-
-      // const url = "/api/images";
-
-      // const response = await fetch(url, {
-      //   method: "POST",
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //   },
-      //   body: JSON.stringify({
-      //     prompt: prompt,
-      //     model: model,
-      //   }),
-      // });
 
       if (!response.ok) {
         throw new Error("Network response was not ok");
@@ -114,21 +75,77 @@ export default function ImagePage(props: IAppProps) {
     }
   }
 
-  const [type, setType] = useState("webp");
+  // async function getImages() {
+  //   let time1;
+  //   let time2;
+  //   if (prompt != "") {
+  //     setError(false);
+  //     setLoading(true);
+  //     setResult("");
+  //     time1 = new Date().getTime();
+  //     const response = await fetch("/api/images", {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify({
+  //         prompt: prompt,
+  //         model: model,
+  //       }),
+  //     });
 
-  function download(url: string) {
-    axios
-      .post(`/api/download`, { url: url, type: type })
-      .then((res) => {
-        const link = document.createElement("a");
-        link.href = res.data.result;
-        link.download = `${prompt}.${type.toLowerCase()}`;
-        link.click();
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }
+  //     // const url = "/api/images";
+
+  //     // const response = await fetch(url, {
+  //     //   method: "POST",
+  //     //   headers: {
+  //     //     "Content-Type": "application/json",
+  //     //   },
+  //     //   body: JSON.stringify({
+  //     //     prompt: prompt,
+  //     //     model: model,
+  //     //   }),
+  //     // });
+
+  //     if (!response.ok) {
+  //       throw new Error("Network response was not ok");
+  //     }
+
+  //     const data = response.body;
+  //     if (!data) {
+  //       return;
+  //     }
+
+  //     console.log(data);
+
+  //     const reader = data.getReader();
+  //     const decoder = new TextDecoder();
+  //     let resultData = "";
+
+  //     while (true) {
+  //       const { value, done: doneReading } = await reader.read();
+
+  //       if (doneReading) {
+  //         break;
+  //       }
+
+  //       const chunkValue = decoder.decode(value);
+  //       resultData += chunkValue;
+  //     }
+
+  //     // Assuming setResult is a state updater from React useState
+  //     setResult(resultData);
+
+  //     time2 = new Date().getTime();
+
+  //     console.log(time2 - time1);
+
+  //     setLoading(false);
+  //     console.log(resultData);
+  //   }
+  // }
+
+
 
   return (
     <>

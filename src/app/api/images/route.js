@@ -20,9 +20,11 @@
 
 //   res.status(200).json({ result: response.data });
 // }
+export const runtime = "edge";
 
-export async function POST(req) {
+export async function POST(req, res) {
   const openaiApiKey = process.env.OPENAI_API_KEY;
+
   if (!openaiApiKey) {
     throw new Error("Missing env var from OpenAI");
   }

@@ -21,22 +21,14 @@
 //   res.status(200).json({ result: response.data });
 // }
 
-export const config = {
-  runtime: "edge",
-};
-
-export default async function handler(req, res) {
+export async function POST(req) {
   const openaiApiKey = process.env.OPENAI_API_KEY;
-  
   if (!openaiApiKey) {
     throw new Error("Missing env var from OpenAI");
   }
 
   const { model, prompt } = await req.json();
 
-  export const config = {
-  runtime: "edge",
-};
   // const model = req.query.m;
   // const prompt = req.query.p;
 
@@ -58,6 +50,6 @@ export default async function handler(req, res) {
 
   const data = await response.json();
   // Sending the response with headers
-  console.log(data.data[0].url);
+  // console.log(data.data[0].url);
   return new Response(data.data[0].url);
 }
