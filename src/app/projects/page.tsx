@@ -18,13 +18,15 @@ import Footer from "../components/Footer";
 
 interface Project {
   title: string;
-  types: Array<string>; // Fix: Specify the type argument for the Array type.
+  types: Array<string>;
   img: string | StaticImageData;
   link: string;
   github: string;
   description: string;
   selectedSkills: string;
   appStore?: string;
+  internal?: boolean;
+  inProgress?: boolean;
 }
 
 const SkillArray = [
@@ -34,8 +36,17 @@ const SkillArray = [
   "TypeScript",
   "React Native",
   "Python",
+  "Django",
+  "PostgreSQL",
+  "Supabase",
+  "R",
+  "R-Shiny",
+  "Oracle",
+  "AI",
+  "OCR",
   "Firebase",
   "OpenAI",
+  "Web Design",
   "WordPress",
   "PHP",
   "Node.js",
@@ -51,77 +62,90 @@ const SingleProject: React.FC<Project> = ({
   description,
   selectedSkills,
   appStore,
+  internal,
+  inProgress,
 }) => {
+  const imageEl = (
+    <Image
+      src={`/images/${img}`}
+      width={500}
+      height={500}
+      alt={title}
+      className="h-auto w-full transition-transform duration-500 hover:scale-105"
+    />
+  );
 
-
-  
   return (
-    <>
-      <article
-        className=" w-full flex flex-row md:flex-col md:px-3 md:py-3  md:pb-20  items-center justify-center
-     rounded-2xl border border-solid border-dark dark:border-light p-11 bg-light dark:bg-dark relative"
-      >
-        <div className="absolute rounded-[2rem] top-0 -right-3 -z-10 w-[101%] h-[103%] bg-dark " />
-        <div className="flex gap-2 absolute right-3 top-3 md:md:top-auto  md:bottom-5 ">
-          {types.map((type, index) => (
-            <span
-              key={index}
-              className={`font-medium text-xs ${
-                selectedSkills === type ? "text-primary" : ""
-              }`}
-            >
-              {type}
-            </span>
-          ))}
-        </div>
-        <Link
-          href={link}
-          target="_blank"
-          className="w-1/2 md:w-full overflow-hidden rounded-xl border border-solid border-dark dark:border-light"
-        >
-          <Image
-            src={`/images/${img}`}
-            width={500}
-            height={500}
-            alt={title}
-            className="h-auto w-full transition-transform duration-500 hover:scale-105  "
-          />
-        </Link>
-        <div className="w-1/2 md:w-full flex flex-col items-start justify-between pl-6 sm:pl-3 ">
-          <div className="text-4xl font-bold my-4 ">{title}</div>
-          <div className="text-lg font-medium">{description}</div>
+    <article
+      className="w-full flex flex-row md:flex-col md:px-3 md:py-3 md:pb-20 items-center justify-center
+       rounded-2xl border border-solid border-dark dark:border-light p-11 bg-light dark:bg-dark relative"
+    >
+      <div className="absolute rounded-[2rem] top-0 -right-3 -z-10 w-[101%] h-[103%] bg-dark" />
 
-          <div className="flex flex-row items-center justify-center  gap-7 w-full mt-5">
-            {github && (
-              <Link
-                href={github}
-                target="_blank"
-                className="hover:underline underline-offset-2"
-              >
-                <BiGithub className="w-10 h-10" />
-              </Link>
-            )}
-            {link && (
-              <Link
-                href={link}
-                className=" flex items-center bg-dark dark:bg-light text-light dark:text-dark p-1 px-3 rounded-lg text-lg font-semibold hover:bg-light hover:text-dark border-2 border-solid border-transparent hover:border-dark  hover:dark:bg-dark hover:dark:text-light  hover:dark:border-light"
-              >
-                Visit Project
-              </Link>
-            )}
-            {appStore && (
-              <Link
-                href={appStore}
-                className=" flex items-center gap-2 bg-dark dark:bg-light text-light dark:text-dark p-1 px-3 rounded-lg text-lg font-semibold hover:bg-light hover:text-dark border-2 border-solid border-transparent hover:border-dark  hover:dark:bg-dark hover:dark:text-light  hover:dark:border-light"
-              >
-                <IonLogoAppleAppstore className="w-8 h-8" />
-                App Store
-              </Link>
-            )}
-          </div>
+      {/* Type tags */}
+      <div className="flex gap-2 absolute right-3 top-3 md:top-auto md:bottom-5 flex-wrap justify-end max-w-[40%]">
+        {types.map((type, index) => (
+          <span
+            key={index}
+            className={`font-medium text-xs ${selectedSkills === type ? "text-primary dark:text-primaryDark" : ""}`}
+          >
+            {type}
+          </span>
+        ))}
+      </div>
+
+      {/* Image — not a link when internal */}
+      <div className="w-1/2 md:w-full overflow-hidden rounded-xl border border-solid border-dark dark:border-light">
+        {link ? (
+          <Link href={link} target="_blank">{imageEl}</Link>
+        ) : (
+          imageEl
+        )}
+      </div>
+
+      <div className="w-1/2 md:w-full flex flex-col items-start justify-between pl-6 sm:pl-3">
+        <div className="flex items-center gap-3 mt-0 mb-2 flex-wrap">
+          {internal && (
+            <span className="flex items-center gap-1.5 text-xs font-semibold px-3 py-1 rounded-full bg-dark/10 dark:bg-light/10 border border-dark/20 dark:border-light/20">
+              🔒 Government / Internal
+            </span>
+          )}
+          {inProgress && (
+            <span className="flex items-center gap-1.5 text-xs font-semibold px-3 py-1 rounded-full bg-primaryDark/20 border border-primaryDark/50 text-primaryDark">
+              ⚙ In Progress
+            </span>
+          )}
         </div>
-      </article>
-    </>
+
+        <div className="text-3xl font-bold mb-3">{title}</div>
+        <div className="text-base font-medium text-dark/80 dark:text-light/80 leading-relaxed">{description}</div>
+
+        <div className="flex flex-row items-center gap-5 w-full mt-5">
+          {github && (
+            <Link href={github} target="_blank" className="hover:text-primary dark:hover:text-primaryDark transition-colors">
+              <BiGithub className="w-10 h-10" />
+            </Link>
+          )}
+          {link && (
+            <Link
+              href={link}
+              className="flex items-center bg-dark dark:bg-light text-light dark:text-dark p-1 px-3 rounded-lg text-lg font-semibold hover:bg-light hover:text-dark border-2 border-solid border-transparent hover:border-dark hover:dark:bg-dark hover:dark:text-light hover:dark:border-light transition-colors"
+            >
+              Visit Project
+            </Link>
+          )}
+          {appStore && (
+            <Link
+              href={appStore}
+              className="flex items-center gap-2 bg-dark dark:bg-light text-light dark:text-dark p-1 px-3 rounded-lg text-lg font-semibold hover:bg-light hover:text-dark border-2 border-solid border-transparent hover:border-dark hover:dark:bg-dark hover:dark:text-light hover:dark:border-light transition-colors"
+            >
+              <IonLogoAppleAppstore className="w-8 h-8" />
+              App Store
+            </Link>
+          )}
+        </div>
+      </div>
+    </article>
   );
 };
 
@@ -199,6 +223,8 @@ export default function Projects() {
                     description={project.description}
                     selectedSkills={selectedSkills}
                     appStore={project.appStore}
+                    internal={project.internal}
+                    inProgress={project.inProgress}
                   />
                 </div>
               );

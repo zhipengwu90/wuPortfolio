@@ -2,7 +2,7 @@
 import { Layout } from "../components/Layout";
 import AnimatedText from "../components/AnimatedText";
 import Image from "next/image";
-import about_me from "../../../public/images/about_me.png";
+import about_me from "../../../public/images/about_me.svg";
 import { useRef, useEffect } from "react";
 import { useMotionValue, useInView, useSpring } from "framer-motion";
 import Skills from "../components/Skills";
@@ -44,17 +44,19 @@ export default function About() {
               Biography
             </h1>
             <p className="my-4">
-              I'm Wu, a full-stack developer dedicated to turning ambitious
-              concepts into tangible digital solutions. With expertise in
-              JavaScript, Swift, Next.js and a suite of cutting-edge
-              technologies, I specialize in crafting immersive web applications
-              that not only meet but exceed expectations.
+              I'm Wu, a Data Technician at Fisheries and Oceans Canada (DFO)
+              and a full-stack developer. I build data pipelines, database
+              systems, and web applications that turn complex scientific data
+              into accessible tools for researchers and analysts. My current
+              work spans R Shiny ETL tools, Django/PostgreSQL APIs, and
+              Next.js frontends — all in support of salmon population and
+              genetic data management.
             </p>
             <p>
               I have a strong passion for technology and a keen eye for detail.
-              I am a quick learner who is always eager to take on new challenges
-              and learn new things. I am a team player who is always willing to
-              help others and share my knowledge with them.
+              I enjoy bridging the gap between data engineering and user-facing
+              software — making it easier for domain experts to work with
+              their data without needing to be developers themselves.
             </p>
           </div>
           <div className="col-span-3 md:hidden relative h-max rounded-2xl border-2 border-solid border-dark bg-light ">
@@ -68,24 +70,24 @@ export default function About() {
             />
           </div>
 
-          <div className="col-span-2  lg:col-span-8 lg:flex-row flex flex-col justify-between items-end  text-dark dark:text-light">
-            <div className="flex flex-col items-end  lg:items-center justify-center">
-              <span className="inline-block text-6xl md:text-4xl font-bold ">
-                <AnimatedNumber value={10} />+
+          <div className="col-span-2 lg:col-span-8 lg:flex-row flex flex-col justify-between items-end text-dark dark:text-light">
+            <div className="flex flex-col items-end lg:items-center justify-center">
+              <span className="inline-block text-6xl md:text-4xl font-bold">
+                <AnimatedNumber value={20} />+
               </span>
-              <h2>Projects</h2>
+              <h2 className="text-sm font-medium text-dark/60 dark:text-light/60 mt-1">Projects</h2>
             </div>
             <div className="flex flex-col items-end lg:items-center justify-center">
-              <span className="inline-block text-6xl md:text-4xl font-bold ">
-                <AnimatedNumber value={10} />
+              <span className="inline-block text-6xl md:text-4xl font-bold">
+                <AnimatedNumber value={3} />+
               </span>
-              <h2>Starts</h2>
+              <h2 className="text-sm font-medium text-dark/60 dark:text-light/60 mt-1">Years at DFO</h2>
             </div>
             <div className="flex flex-col items-end lg:items-center justify-center">
-              <span className="inline-block text-6xl md:text-4xl font-bold ">
-                <AnimatedNumber value={1} />+
+              <span className="inline-block text-6xl md:text-4xl font-bold">
+                <AnimatedNumber value={5} />+
               </span>
-              <h2>Years of experience</h2>
+              <h2 className="text-sm font-medium text-dark/60 dark:text-light/60 mt-1">Technologies</h2>
             </div>
           </div>
         </div>

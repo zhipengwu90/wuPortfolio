@@ -8,30 +8,24 @@ interface Theme {
 
 const useThemeSwitcher = (): Theme => {
   const [mode, setMode] = useState("light");
-  const preferDarkQuery = "(prefers-color-scheme: light)";
-  
+  const preferDarkQuery = "(prefers-color-scheme: dark)";
+
   useEffect(() => {
     const mediaQuery = window.matchMedia(preferDarkQuery);
-    const userPref = window.localStorage.getItem("theme");
 
     const handleChange = () => {
-      if (userPref) {
-        let check = userPref === "dark" ? "dark" : "light";
-        setMode(check);
-        if (check === "dark") {
-          document.documentElement.classList.add("dark");
-        } else {
-          document.documentElement.classList.remove("dark");
-        }
-      } else {
-        let check = mediaQuery.matches ? "dark" : "light";
-        setMode(check);
-        if (check === "dark") {
-          document.documentElement.classList.add("dark");
-        } else {
-          document.documentElement.classList.remove("dark");
-        }
-      }
+      const userPref = window.localStorage.getItem("theme");
+      // A saved preference always wins; otherwise follow the system setting.
+      const check = userPref
+        ? userPref === "dark"
+          ? "dark"
+          : "light"
+        : mediaQuery.matches
+        ? "dark"
+        : "light";
+
+      setMode(check);
+      document.documentElement.classList.toggle("dark", check === "dark");
     };
     handleChange();
 
@@ -39,16 +33,17 @@ const useThemeSwitcher = (): Theme => {
     return () => mediaQuery.removeEventListener("change", handleChange);
   }, []);
 
-  useEffect(() => {
-    if (mode === "dark") {
-      window.localStorage.setItem("theme", "dark");
-      document.documentElement.classList.add("dark");
-    } else {
-      window.localStorage.setItem("theme", "light");
-      document.documentElement.classList.remove("dark");
-    }
-  }, [mode]);
-  return { mode, setMode };
+  // Explicit user changes persist the choice and apply it immediately.
+  const setModePersist: React.Dispatch<React.SetStateAction<string>> = (value) => {
+    setMode((prev) => {
+      const next = typeof value === "function" ? value(prev) : value;
+      window.localStorage.setItem("theme", next);
+      document.documentElement.classList.toggle("dark", next === "dark");
+      return next;
+    });
+  };
+
+  return { mode, setMode: setModePersist };
 };
 
 export default useThemeSwitcher;

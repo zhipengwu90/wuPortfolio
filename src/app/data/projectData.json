@@ -1,30 +1,81 @@
 [
   {
+    "title": "Data Extraction Tool",
+    "types": ["R", "R-Shiny", "Oracle"],
+    "img": "dfo-data-extraction.svg",
+    "link": "",
+    "github": "",
+    "internal": true,
+    "description": "An R Shiny application built for Fisheries and Oceans Canada that connects to an Oracle database. Users upload a Microsoft Access database and the tool performs ETL — extracting, transforming, and outputting data in the correct format required for scientific workflows."
+  },
+  {
+    "title": "Salmon Population Summary Repository (SPSR)",
+    "types": ["Django", "PostgreSQL", "Python"],
+    "img": "dfo-spsr.svg",
+    "link": "",
+    "github": "",
+    "internal": true,
+    "description": "A Django application for browsing, exporting, and uploading salmon population summary data and metadata. Supports six public data routes (Population, CU, SMU, Indicator, PFMA, Status/Composite), Salmon Data Package uploads and exports, a read-only REST API with OpenAPI/Swagger docs, and assessment-aware versioning."
+  },
+  {
+    "title": "Genetic Results Database",
+    "types": ["PostgreSQL", "Next.js", "TypeScript"],
+    "img": "dfo-genetics.svg",
+    "link": "",
+    "github": "",
+    "internal": true,
+    "inProgress": true,
+    "description": "In progress — a PostgreSQL database schema redesigned to handle both historical and new genetic data across different formats for Fisheries and Oceans Canada. A Next.js frontend will allow users to query and export data in the format they need."
+  },
+  {
+    "title": "Receipt Tracker",
+    "types": ["React Native", "OCR", "AI"],
+    "img": "receipt-tracker.svg",
+    "link": "https://receipt-tracker-dun.vercel.app",
+    "appStore": "https://apps.apple.com/ca/app/receipt-tracker/id6754727047",
+    "github": "",
+    "description": "A mobile app that scans receipts using OCR and AI to automatically extract the merchant, total, and category — then organizes, analyzes, and exports your spending with charts and reports. Built with React Native; available on the App Store."
+  },
+  {
+    "title": "Inventory App",
+    "types": ["Next.js", "Supabase", "TypeScript"],
+    "img": "inventory-app.svg",
+    "link": "https://inventory-app-topaz-one.vercel.app",
+    "github": "https://github.com/zhipengwu90/inventory-app",
+    "description": "A business inventory management app that tracks stock levels and automatically generates shopping lists from low-stock items. Built with Next.js and TypeScript, backed by a Supabase Postgres database with real-time sync."
+  },
+  {
+    "title": "Brazen Poppy Bakery",
+    "types": ["Next.js", "TailwindCSS", "Web Design"],
+    "img": "brazen-poppy.svg",
+    "link": "https://brazenpoppy.ca",
+    "github": "",
+    "description": "A marketing website for Brazen Poppy, a café and bakery in Parksville, BC — featuring their menu, hours, location, and story. Built with Next.js and TailwindCSS, deployed on Vercel."
+  },
+  {
     "title": "Notes.ai V3.0",
     "types": ["React", "Python", "Node.js", "Electron"],
     "img": "Notesai.png",
     "link": "",
     "appStore": "https://apps.apple.com/us/app/notes-ai/id6477414161",
     "github": "",
-    "description": "A mac OS application that uses OpenAI whistler model to generate notes from the user's voice. The app is built with React, Python, Node.js, and Electron. The app version 2.0 is available on the App Store. We are working on the version 3.0."
+    "description": "A mac OS application that uses OpenAI whisper model to generate notes from the user's voice. The app is built with React, Python, Node.js, and Electron. Version 2.0 is available on the App Store."
   },
   {
     "title": "Wu's Portfolio V2.0",
-    "types": ["React", "Python", "Node.js", "Electron"],
+    "types": ["React", "TypeScript"],
     "img": "portfolio.png",
     "link": "https://wu-portfolio.vercel.app/",
     "github": "https://github.com/zhipengwu90/wuPortfolio",
-    "description": "This project is my portfolio website. It is built with React, TypeScript. The website is responsive and mobile-friendly."
+    "description": "A personal portfolio website built with React and TypeScript. Responsive and mobile-friendly."
   },
-  
-  
   {
     "title": "Hands On",
     "types": ["React Native", "Firebase", "Node.js", "Express.js"],
     "img": "hands_on.png",
     "link": "",
     "github": "https://github.com/zhipengwu90/Hands_On_app",
-    "description": "The mobile application that connects busy people with reliable helpers in their local area. The app is built with React Native and Expo. The backend is built with Node.js, Express.js, and Firebase."
+    "description": "A mobile application that connects busy people with reliable helpers in their local area. Built with React Native and Expo; backend with Node.js, Express.js, and Firebase."
   },
   {
     "title": "Chatbot",
@@ -32,7 +83,7 @@
     "img": "chatbot.png",
     "link": "https://www.wuapp.app/",
     "github": "https://github.com/zhipengwu90/Chatbot",
-    "description": "This project uses the ChatGPT API and Vercel Edge functions with streaming. Users, with their own OpenAI API key, can use this web application as a personal ChatGPT and switch between models as needed, without having to pay for ChatGPT plus. The app is built with Next.js and TypeScript."
+    "description": "A personal ChatGPT interface using the OpenAI API and Vercel Edge functions with streaming. Users bring their own API key and can switch between models without a ChatGPT Plus subscription. Built with Next.js and TypeScript."
   },
   {
     "title": "VFriend",
@@ -40,7 +91,7 @@
     "img": "VFriend.png",
     "link": "",
     "github": "https://github.com/zhipengwu90/VFriend",
-    "description": "This mobile application enabling users to create and interact with virtual characters. The app is built with React Native and Expo, and integrated with the OpenAI API."
+    "description": "A mobile application that lets users create and interact with virtual characters. Built with React Native and Expo, integrated with the OpenAI API."
   },
   {
     "title": "Fever Scanner",
@@ -48,7 +99,7 @@
     "img": "FeverScanner.png",
     "link": "",
     "github": "https://github.com/zhipengwu90/FeverScanner",
-    "description": "This project is using raspeberry pi and thermal imaging camera to create a fever scanner to monitor the users' body temperature The users will scan their NFC tags to identify their IDs, then trigger the thermal imaging camera to start taking the body temperature."
+    "description": "A Raspberry Pi project that uses a thermal imaging camera to monitor users' body temperature. Users scan their NFC tags to identify themselves, which triggers the camera to capture and record their temperature."
   },
   {
     "title": "Dream House",
@@ -56,7 +107,7 @@
     "img": "dream_house.png",
     "link": "https://zhipengwu90.github.io/ITAS191/index.html",
     "github": "https://github.com/zhipengwu90/zhipengwu90.github.io/tree/main/ITAS191",
-    "description": "This project is using raspeberry pi and thermal imaging camera to create a fever scanner to monitor the users' body temperature The users will scan their NFC tags to identify their IDs, then trigger the thermal imaging camera to start taking the body temperature."
+    "description": "A responsive real-estate showcase website built with HTML, CSS, Bootstrap, and JavaScript."
   },
   {
     "title": "Wu's Portfolio",
@@ -64,7 +115,7 @@
     "img": "portfolioV1.png",
     "link": "https://zhipengwu90.github.io/index.html",
     "github": "https://github.com/zhipengwu90/zhipengwu90.github.io",
-    "description": "This project is my portfolio website. It is built with HTML, CSS, and JavaScript. The website is responsive and mobile-friendly."
+    "description": "Version 1 of my portfolio website, built with HTML, CSS, and JavaScript. Responsive and mobile-friendly."
   },
   {
     "title": "Canada Market",
@@ -72,6 +123,6 @@
     "img": "CanadaMarket.png",
     "link": "",
     "github": "",
-    "description": "This project is a website for house hunting, it is built with WordPress. The website is responsive and mobile-friendly."
+    "description": "A house-hunting website built with WordPress. Responsive and mobile-friendly."
   }
 ]
